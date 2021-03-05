@@ -1,4 +1,6 @@
+Application$1.class
 parser\factory\JsonParserFactory.class
+Application$2.class
 Errors\Errors.class
 parser\implementation\CsvParser.class
 configuration\SpringConfiguration.class

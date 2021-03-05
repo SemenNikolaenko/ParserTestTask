@@ -5,18 +5,15 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 import parser.CustomParser;
 
-@Component
 public class CsvParserFactory extends AbstractFactory {
 
-    private CustomParser csvParser;
+    private final CustomParser csvParser;
 
-    public CsvParserFactory() {
-    }
-
-    @Autowired
-    public void setCsvParser(@Qualifier("csvParser") CustomParser csvParser) {
+    public CsvParserFactory(CustomParser csvParser) {
         this.csvParser = csvParser;
     }
+
+
 
     @Override
     public CustomParser createParser() {
