@@ -1,7 +1,8 @@
-package parser;
+package parser.implementation;
 
 import Errors.Errors;
 import org.springframework.stereotype.Component;
+import parser.CustomParser;
 
 import java.io.File;
 import java.io.IOException;
@@ -25,11 +26,11 @@ public class JsonParser implements CustomParser {
 
     }
 
-    public CustomParser setWorkParam(String filePath) {
+    public void setWorkParam(String filePath) {
         file = Paths.get(filePath).toFile();
         this.filePath = filePath;
         separateLines = new ArrayList<>();
-return this;
+//        return this;
     }
 
     @Override
@@ -43,7 +44,6 @@ return this;
                             .collect(Collectors.toList())
             );
         }
-
         int temp = 0;
         while (temp < massParam.size()) {
             if (
@@ -69,7 +69,7 @@ return this;
         try {
             parsingFileWithAdditionalInfo = parsingLinesFromFile();
             for (int i = 0; i < parsingFileWithAdditionalInfo.size(); i++) {
-                String temp = parsingFileWithAdditionalInfo.get(i) + " filename " + getFileName() + " line " + (i + 1)+" ";
+                String temp = parsingFileWithAdditionalInfo.get(i) + " filename " + getFileName() + " line " + (i + 1) + " ";
                 parsingFileWithAdditionalInfo.set(i, temp);
             }
         } catch (IOException e) {

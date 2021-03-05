@@ -1,0 +1,13 @@
+D:\TestParser\src\main\java\converter\ConvertToOutputFormat.java
+D:\TestParser\src\main\java\converter\Converter.java
+D:\TestParser\src\main\java\configuration\SpringConfiguration.java
+D:\TestParser\src\main\java\output\OutputObject.java
+D:\TestParser\src\main\java\parser\factory\CsvParserFactory.java
+D:\TestParser\src\main\java\parser\implementation\JsonParser.java
+D:\TestParser\src\main\java\Errors\Errors.java
+D:\TestParser\src\main\java\parser\CustomParser.java
+D:\TestParser\src\main\java\Application.java
+D:\TestParser\src\main\java\parser\factory\AbstractFactory.java
+D:\TestParser\src\main\java\parser\factory\AllParserFactory.java
+D:\TestParser\src\main\java\parser\factory\JsonParserFactory.java
+D:\TestParser\src\main\java\parser\implementation\CsvParser.java

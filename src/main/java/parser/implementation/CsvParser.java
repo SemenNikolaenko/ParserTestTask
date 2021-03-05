@@ -1,7 +1,8 @@
-package parser;
+package parser.implementation;
 
 import Errors.Errors;
 import org.springframework.stereotype.Component;
+import parser.CustomParser;
 
 import java.io.File;
 import java.io.IOException;
@@ -24,11 +25,11 @@ public class CsvParser implements CustomParser {
     }
 
     @Override
-    public CustomParser setWorkParam(String filePath) {
+    public void setWorkParam(String filePath) {
         file = Paths.get(filePath).toFile();
         this.filePath = filePath;
         separateLines = new ArrayList<>();
-        return this;
+//        return this;
     }
 
     @Override
