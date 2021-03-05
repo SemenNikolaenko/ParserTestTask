@@ -1,8 +1,8 @@
 package Errors;
 
 public enum Errors {
-    READ_ERROR("Произошла ошибка чтения парсинг не удался"),DONT_ENOUGH_INPUT_DATA("DONT_ENOUGH_INPUT_DATA"),
-    INVALID_DATA_INPUT("Введены неверные данные в некоторые поля");
+    READ_ERROR("ERROR_READ_INPUT_DATA"),DONT_ENOUGH_INPUT_DATA("DONT_ENOUGH_INPUT_DATA"),
+    INVALID_DATA_INPUT("TEXT_CONTAINS_INVALID_DATA");
     String message;
 
     Errors(String message) {
