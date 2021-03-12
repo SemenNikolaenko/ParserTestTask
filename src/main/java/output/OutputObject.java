@@ -1,13 +1,12 @@
 package output;
 
-public class OutputObject  {
-    private int id=0;
-    private double amount=0;
-    private String comment="";
-    private String filename="";
-    private int line=0;
+public class OutputObject {
+    private int id = 0;
+    private double amount = 0;
+    private String comment = "";
+    private String filename = "";
+    private int line = 0;
     public String result;
-
 
 
     public static class Builder {

@@ -9,32 +9,6 @@ import java.util.*;
 @Component
 public class ConvertToOutputFormat implements Converter {
 
-//    @Override worked method
-//    public List<OutputObject> getReadyObject(List<String> linesReadyToConvert) {
-//        List<String> linesToConvert = linesReadyToConvert;
-//        List<OutputObject> readyObjects = new ArrayList<>();
-//        for (int i = 0; i < linesToConvert.size(); i++) {
-//            if (linesToConvert.get(i).contains(Errors.READ_ERROR.getMessage())) {
-//                OutputObject object = new OutputObject.Builder().setResult(Errors.READ_ERROR.getMessage()).build();
-//                readyObjects.add(object);
-//            } else if (linesToConvert.get(i).contains(Errors.DONT_ENOUGH_INPUT_DATA.getMessage())) {
-//                OutputObject object = new OutputObject.Builder().setResult(Errors.DONT_ENOUGH_INPUT_DATA.getMessage()).build();
-//                readyObjects.add(object);
-//            } else {
-//                Map<String, String> params = getParamsForFutureObject(linesToConvert.get(i));
-//                OutputObject object = new OutputObject.Builder()
-//                        .setId(Integer.parseInt(params.get("orderId")))
-//                        .setAmount(Double.parseDouble(params.get("amount")))
-//                        .setFilename(params.get("filename"))
-//                        .setLine(Integer.parseInt(params.get("line")))
-//                        .setResult(params.get("result"))
-//                        .setComment(params.get("comment"))
-//                        .build();
-//                readyObjects.add(object);
-//            }
-//        }
-//        return readyObjects;
-//    }
 @Override
     public OutputObject getReadyObject(String lineReadyToConvert) {
         OutputObject readyObject;

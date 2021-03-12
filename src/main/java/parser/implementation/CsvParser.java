@@ -29,7 +29,7 @@ public class CsvParser implements CustomParser {
         file = Paths.get(filePath).toFile();
         this.filePath = filePath;
         separateLines = new ArrayList<>();
-//        return this;
+
     }
 
     @Override
@@ -59,7 +59,7 @@ public class CsvParser implements CustomParser {
         try {
             parsingFileWithAdditionalInfo = parsingLinesFromFile();
             for (int i = 0; i < parsingFileWithAdditionalInfo.size(); i++) {
-                String temp = parsingFileWithAdditionalInfo.get(i) + " filename " + getFileName() + " line " + (i + 1)+" ";
+                String temp = parsingFileWithAdditionalInfo.get(i) + " filename " + getFileName() + " line " + (i + 1) + " ";
                 parsingFileWithAdditionalInfo.set(i, temp);
             }
         } catch (IOException e) {
