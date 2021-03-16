@@ -12,28 +12,28 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * основной класс парсера, в котором определены методы работы с файлами из вне
+ * РѕСЃРЅРѕРІРЅРѕР№ РєР»Р°СЃСЃ РїР°СЂСЃРµСЂР°, РІ РєРѕС‚РѕСЂРѕРј РѕРїСЂРµРґРµР»РµРЅС‹ РјРµС‚РѕРґС‹ СЂР°Р±РѕС‚С‹ СЃ С„Р°Р№Р»Р°РјРё РёР· РІРЅРµ
  */
 public abstract class AbstractParser implements CustomParser {
-    //файл полученный из консоли
+    //С„Р°Р№Р» РїРѕР»СѓС‡РµРЅРЅС‹Р№ РёР· РєРѕРЅСЃРѕР»Рё
     protected File file;
-    //путь файла полученный из консоли
+    //РїСѓС‚СЊ С„Р°Р№Р»Р° РїРѕР»СѓС‡РµРЅРЅС‹Р№ РёР· РєРѕРЅСЃРѕР»Рё
     String filePath;
-    //не все файлы могут одинаково хорошо читаться, для некоторых необходимо выставить кодировку
+    //РЅРµ РІСЃРµ С„Р°Р№Р»С‹ РјРѕРіСѓС‚ РѕРґРёРЅР°РєРѕРІРѕ С…РѕСЂРѕС€Рѕ С‡РёС‚Р°С‚СЊСЃСЏ, РґР»СЏ РЅРµРєРѕС‚РѕСЂС‹С… РЅРµРѕР±С…РѕРґРёРјРѕ РІС‹СЃС‚Р°РІРёС‚СЊ РєРѕРґРёСЂРѕРІРєСѓ
     Charset charsetForReading = Charset.defaultCharset();
     List<String> separateLines;
 
     /**
-     * каждый файл имеет свой формат данных, данный метод позволяет распарсить строку на отдельные части
+     * РєР°Р¶РґС‹Р№ С„Р°Р№Р» РёРјРµРµС‚ СЃРІРѕР№ С„РѕСЂРјР°С‚ РґР°РЅРЅС‹С…, РґР°РЅРЅС‹Р№ РјРµС‚РѕРґ РїРѕР·РІРѕР»СЏРµС‚ СЂР°СЃРїР°СЂСЃРёС‚СЊ СЃС‚СЂРѕРєСѓ РЅР° РѕС‚РґРµР»СЊРЅС‹Рµ С‡Р°СЃС‚Рё
      *
-     * @return List с отдельными частями строки для дальнейшей работы
+     * @return List СЃ РѕС‚РґРµР»СЊРЅС‹РјРё С‡Р°СЃС‚СЏРјРё СЃС‚СЂРѕРєРё РґР»СЏ РґР°Р»СЊРЅРµР№С€РµР№ СЂР°Р±РѕС‚С‹
      * @throws IOException
      */
     public abstract List<String> parsingLinesFromFile() throws IOException;
 
     /**
-     * данный метод вызывается после работы метода {@link AbstractParser#parsingLinesFromFile()}
-     * для каждой распарсеной строки добавляет доп информацию об имени файла и номере строки
+     * РґР°РЅРЅС‹Р№ РјРµС‚РѕРґ РІС‹Р·С‹РІР°РµС‚СЃСЏ РїРѕСЃР»Рµ СЂР°Р±РѕС‚С‹ РјРµС‚РѕРґР° {@link AbstractParser#parsingLinesFromFile()}
+     * РґР»СЏ РєР°Р¶РґРѕР№ СЂР°СЃРїР°СЂСЃРµРЅРѕР№ СЃС‚СЂРѕРєРё РґРѕР±Р°РІР»СЏРµС‚ РґРѕРї РёРЅС„РѕСЂРјР°С†РёСЋ РѕР± РёРјРµРЅРё С„Р°Р№Р»Р° Рё РЅРѕРјРµСЂРµ СЃС‚СЂРѕРєРё
      *
      * @return
      */
@@ -43,21 +43,21 @@ public abstract class AbstractParser implements CustomParser {
         try {
             parsingFileWithAdditionalInfo = parsingLinesFromFile();
             for (int i = 0; i < parsingFileWithAdditionalInfo.size(); i++) {
-                //добавление доп информации к строке
+                //РґРѕР±Р°РІР»РµРЅРёРµ РґРѕРї РёРЅС„РѕСЂРјР°С†РёРё Рє СЃС‚СЂРѕРєРµ
                 String temp = parsingFileWithAdditionalInfo.get(i) + " filename " + getFileName() + " line " + (i + 1) + " ";
                 parsingFileWithAdditionalInfo.set(i, temp);
             }
         } catch (IOException e) {
-            // в случае появление исключения в файл добавляет сообщение об ошибке для дальнейшей обработки
+            // РІ СЃР»СѓС‡Р°Рµ РїРѕСЏРІР»РµРЅРёРµ РёСЃРєР»СЋС‡РµРЅРёСЏ РІ С„Р°Р№Р» РґРѕР±Р°РІР»СЏРµС‚ СЃРѕРѕР±С‰РµРЅРёРµ РѕР± РѕС€РёР±РєРµ РґР»СЏ РґР°Р»СЊРЅРµР№С€РµР№ РѕР±СЂР°Р±РѕС‚РєРё
             parsingFileWithAdditionalInfo.add("result " + Errors.READ_ERROR.getMessage());
         }
         return parsingFileWithAdditionalInfo;
     }
 
     /**
-     * читает из файла все строки
+     * С‡РёС‚Р°РµС‚ РёР· С„Р°Р№Р»Р° РІСЃРµ СЃС‚СЂРѕРєРё
      *
-     * @return List с прочитанными строками из файла
+     * @return List СЃ РїСЂРѕС‡РёС‚Р°РЅРЅС‹РјРё СЃС‚СЂРѕРєР°РјРё РёР· С„Р°Р№Р»Р°
      * @throws IOException
      */
     public List<String> readAllLinesInFile() throws IOException {
@@ -65,9 +65,9 @@ public abstract class AbstractParser implements CustomParser {
     }
 
     /**
-     * позволяет получить имя файла
+     * РїРѕР·РІРѕР»СЏРµС‚ РїРѕР»СѓС‡РёС‚СЊ РёРјСЏ С„Р°Р№Р»Р°
      *
-     * @return String имя файла
+     * @return String РёРјСЏ С„Р°Р№Р»Р°
      */
     public String getFileName() {
         return file.getName();

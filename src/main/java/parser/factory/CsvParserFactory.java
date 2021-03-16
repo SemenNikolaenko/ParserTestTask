@@ -3,7 +3,7 @@ package parser.factory;
 import parser.CustomParser;
 
 /**
- * фабрика возвращабющая CSV парсер
+ * С„Р°Р±СЂРёРєР° РІРѕР·РІСЂР°С‰Р°Р±СЋС‰Р°СЏ CSV РїР°СЂСЃРµСЂ
  */
 public class CsvParserFactory extends AbstractFactory {
 

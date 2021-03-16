@@ -13,14 +13,14 @@ import java.util.stream.Collectors;
 import static java.nio.charset.StandardCharsets.UTF_8;
 
 /**
- * реализация парсера для чтения файлов формата JSON
+ * СЂРµР°Р»РёР·Р°С†РёСЏ РїР°СЂСЃРµСЂР° РґР»СЏ С‡С‚РµРЅРёСЏ С„Р°Р№Р»РѕРІ С„РѕСЂРјР°С‚Р° JSON
  */
 @Component
 public class JsonParser extends AbstractParser {
 
 
     /**
-     * в этом методе происходит инициализация рабочих параметров парсера
+     * РІ СЌС‚РѕРј РјРµС‚РѕРґРµ РїСЂРѕРёСЃС…РѕРґРёС‚ РёРЅРёС†РёР°Р»РёР·Р°С†РёСЏ СЂР°Р±РѕС‡РёС… РїР°СЂР°РјРµС‚СЂРѕРІ РїР°СЂСЃРµСЂР°
      *
      * @param filePath
      */
@@ -33,16 +33,16 @@ public class JsonParser extends AbstractParser {
     }
 
     /**
-     * каждый файл имеет свой формат данных, данный метод позволяет распарсить строку на отдельные части
+     * РєР°Р¶РґС‹Р№ С„Р°Р№Р» РёРјРµРµС‚ СЃРІРѕР№ С„РѕСЂРјР°С‚ РґР°РЅРЅС‹С…, РґР°РЅРЅС‹Р№ РјРµС‚РѕРґ РїРѕР·РІРѕР»СЏРµС‚ СЂР°СЃРїР°СЂСЃРёС‚СЊ СЃС‚СЂРѕРєСѓ РЅР° РѕС‚РґРµР»СЊРЅС‹Рµ С‡Р°СЃС‚Рё
      *
-     * @return List с отдельными частями строки для дальнейшей работы
+     * @return List СЃ РѕС‚РґРµР»СЊРЅС‹РјРё С‡Р°СЃС‚СЏРјРё СЃС‚СЂРѕРєРё РґР»СЏ РґР°Р»СЊРЅРµР№С€РµР№ СЂР°Р±РѕС‚С‹
      * @throws IOException
      */
     @Override
     public List<String> parsingLinesFromFile() throws IOException {
         List<String> inputLines = readAllLinesInFile();
         List<List<String>> massParam = new ArrayList<>();
-        //в данном цикле происходит разбор строки типа JSON стандартными методами java
+        //РІ РґР°РЅРЅРѕРј С†РёРєР»Рµ РїСЂРѕРёСЃС…РѕРґРёС‚ СЂР°Р·Р±РѕСЂ СЃС‚СЂРѕРєРё С‚РёРїР° JSON СЃС‚Р°РЅРґР°СЂС‚РЅС‹РјРё РјРµС‚РѕРґР°РјРё java
         for (int i = 0; i < inputLines.size(); i++) {
             massParam.add(
                     Arrays.stream(inputLines.get(i)

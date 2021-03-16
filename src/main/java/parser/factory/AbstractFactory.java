@@ -3,7 +3,7 @@ package parser.factory;
 import parser.CustomParser;
 
 /**
- * фабрика которая возвращает определенную реализацию вашего парсера
+ * С„Р°Р±СЂРёРєР° РєРѕС‚РѕСЂР°СЏ РІРѕР·РІСЂР°С‰Р°РµС‚ РѕРїСЂРµРґРµР»РµРЅРЅСѓСЋ СЂРµР°Р»РёР·Р°С†РёСЋ РІР°С€РµРіРѕ РїР°СЂСЃРµСЂР°
  */
 public abstract class AbstractFactory {
     public abstract CustomParser createParser();

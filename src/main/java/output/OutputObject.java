@@ -9,7 +9,7 @@ public class OutputObject {
     public String result;
 
     /*
-    формат готового для вывода в консоль объекта
+    С„РѕСЂРјР°С‚ РіРѕС‚РѕРІРѕРіРѕ РґР»СЏ РІС‹РІРѕРґР° РІ РєРѕРЅСЃРѕР»СЊ РѕР±СЉРµРєС‚Р°
      */
     public static class Builder {
         private OutputObject object;

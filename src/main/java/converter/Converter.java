@@ -14,17 +14,17 @@ interface Converter {
      *
      * @param linesReadyToConvert
      * @return OutputObject readyObject
-     * метод возвращает готовый объект требуемого формата
-     * все параметры для создания объекта получаются из метода
+     * РјРµС‚РѕРґ РІРѕР·РІСЂР°С‰Р°РµС‚ РіРѕС‚РѕРІС‹Р№ РѕР±СЉРµРєС‚ С‚СЂРµР±СѓРµРјРѕРіРѕ С„РѕСЂРјР°С‚Р°
+     * РІСЃРµ РїР°СЂР°РјРµС‚СЂС‹ РґР»В¤ СЃРѕР·РґР°РЅРёВ¤ РѕР±СЉРµРєС‚Р° РїРѕР»СѓС‡Р°СЋС‚СЃВ¤ РёР· РјРµС‚РѕРґР°
      * {@link Converter#getParamsForFutureObject(String)}
      */
     public OutputObject getReadyObject(String linesReadyToConvert);
 
     /**
      *
-     * @param convertedLine это преобразованая строка которую можно получить в классе {@link CustomParser#getParsedString()}
-     * @return Map<String,String> на выходе получается мапа ключи который являются именами параметров
-     * а значения соответственно значениями
+     * @param convertedLine СЌС‚Рѕ РїСЂРµРѕР±СЂР°Р·РѕРІР°РЅР°В¤ СЃС‚СЂРѕРєР° РєРѕС‚РѕСЂСѓСЋ РјРѕР¶РЅРѕ РїРѕР»СѓС‡РёС‚СЊ РІ РєР»Р°СЃСЃРµ {@link CustomParser#getParsedString()}
+     * @return Map<String,String> РЅР° РІС‹С…РѕРґРµ РїРѕР»СѓС‡Р°РµС‚СЃВ¤ РјР°РїР° РєР»СЋС‡Рё РєРѕС‚РѕСЂС‹Р№ В¤РІР»В¤СЋС‚СЃВ¤ РёРјРµРЅР°РјРё РїР°СЂР°РјРµС‚СЂРѕРІ
+     * Р° Р·РЅР°С‡РµРЅРёВ¤ СЃРѕРѕС‚РІРµС‚СЃС‚РІРµРЅРЅРѕ Р·РЅР°С‡РµРЅРёВ¤РјРё
      */
     public Map<String, String> getParamsForFutureObject(String convertedLine);
 

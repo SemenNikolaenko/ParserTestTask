@@ -4,7 +4,7 @@ package parser.factory;
 import parser.CustomParser;
 
 /**
- * фабрика возвращающая JSON парсер
+ * С„Р°Р±СЂРёРєР° РІРѕР·РІСЂР°С‰Р°СЋС‰Р°СЏ JSON РїР°СЂСЃРµСЂ
  */
 public class JsonParserFactory extends AbstractFactory {
 
