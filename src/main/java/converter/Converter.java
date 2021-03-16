@@ -3,7 +3,6 @@ package converter;
 import output.OutputObject;
 import parser.CustomParser;
 
-import java.util.List;
 import java.util.Map;
 
 /**
@@ -23,7 +22,7 @@ interface Converter {
 
     /**
      *
-     * @param convertedLine это преобразованая строка которую можно получить в классе {@link CustomParser#getWorkResult()}
+     * @param convertedLine это преобразованая строка которую можно получить в классе {@link CustomParser#getParsedString()}
      * @return Map<String,String> на выходе получается мапа ключи который являются именами параметров
      * а значения соответственно значениями
      */

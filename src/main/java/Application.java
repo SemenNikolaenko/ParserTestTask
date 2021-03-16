@@ -3,7 +3,6 @@ import converter.ConvertToOutputFormat;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-import org.springframework.stereotype.Component;
 import output.OutputObject;
 import parser.CustomParser;
 import parser.factory.AbstractFactory;
@@ -54,7 +53,7 @@ class Application {
                         factory = AllParserFactory.getFactory(inputFile);
                         parser = factory.createParser();
                         parser.setWorkParam(inputFile);
-                        parser.getWorkResult().forEach(bufferList::add);
+                        parser.getParsedString().forEach(bufferList::add);
 
                     } catch (Exception e) {
                         e.printStackTrace();

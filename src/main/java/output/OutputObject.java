@@ -8,7 +8,9 @@ public class OutputObject {
     private int line = 0;
     public String result;
 
-
+    /*
+    формат готового для вывода в консоль объекта
+     */
     public static class Builder {
         private OutputObject object;
 

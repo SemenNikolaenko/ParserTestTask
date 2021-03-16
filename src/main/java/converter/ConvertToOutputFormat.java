@@ -24,7 +24,7 @@ public class ConvertToOutputFormat implements Converter {
         if (lineReadyToConvert.contains(Errors.READ_ERROR.getMessage())) {
             readyObject = new OutputObject.Builder().setResult(Errors.READ_ERROR.getMessage()).build();
                 /*
-                проверка аналогичная предыдущей, но на наличие другой ошибки
+                если в строке недостаточно входных данных тело объекта заполняется сообщением об ошибке
                  */
         } else if (lineReadyToConvert.contains(Errors.DONT_ENOUGH_INPUT_DATA.getMessage())) {
             readyObject = new OutputObject.Builder().setResult(Errors.DONT_ENOUGH_INPUT_DATA.getMessage()).build();
@@ -56,6 +56,10 @@ public class ConvertToOutputFormat implements Converter {
         return readyObject;
     }
 
+    /*
+    с помощью данного метода вызываются более простые методы для преобразования каждого параметра в готовый выходной формат
+    и на выходе получается Map с набором параметров
+     */
     @Override
     public Map<String, String> getParamsForFutureObject(String convertedLine) throws NumberFormatException {
         Map<String, String> paramsMap = new HashMap<>();
@@ -68,7 +72,13 @@ public class ConvertToOutputFormat implements Converter {
         return paramsMap;
     }
 
-
+    /**
+     * из строки после парсинга извлекается первый параметр, для этого используется {@link String#substring(int, int)}
+     * т.к. мы знаем что в строке есть ключевые слова-имена параметров
+     *
+     * @param convertedLine строка после парсинга
+     * @return String готовый первый параметр
+     */
     private String getCommentFromParsingString(String convertedLine) {
         String comment = convertedLine
                 .substring(convertedLine.indexOf("comment "), convertedLine.indexOf("filename"))
@@ -77,7 +87,14 @@ public class ConvertToOutputFormat implements Converter {
         return comment;
     }
 
-
+    /**
+     * из строки после парсинга извлекается первый параметр, для этого используется {@link String#substring(int, int)}
+     * т.к. мы знаем что в строке есть ключевые слова-имена параметров
+     *
+     * @param convertedLine строка после парсинга
+     * @return int готовый второй параметр
+     * @throws NumberFormatException выбрасывается при неверно введенном параметре
+     */
     private int getOrderIdtFromParsingString(String convertedLine) throws NumberFormatException {
         String orderIdString = convertedLine
                 .substring(convertedLine.indexOf("orderId "), convertedLine.indexOf("amount"))
@@ -88,7 +105,16 @@ public class ConvertToOutputFormat implements Converter {
 
     }
 
-
+    /**
+     * из строки после парсинга извлекается первый параметр, для этого используется {@link String#substring(int, int)}
+     * т.к. мы знаем что в строке есть ключевые слова-имена параметров
+     *
+     * @param convertedLine строка после парсинга
+     * @return double готовый третий параметр
+     * @throws NumberFormatException выбрасывается при неверно введенном параметре
+     *                               из строки после парсинга извлекается первый параметр, для этого используется {@link String#substring(int, int)}
+     *                               т.к. мы знаем что в строке есть ключевые слова-имена параметров
+     */
     private double getAmountFromParsingString(String convertedLine) throws NumberFormatException {
         String amountStringFormat = convertedLine
                 .substring(convertedLine.indexOf("amount "), convertedLine.indexOf("currency"))
@@ -98,7 +124,13 @@ public class ConvertToOutputFormat implements Converter {
         return amount;
     }
 
-
+    /**
+     * из строки после парсинга извлекается первый параметр, для этого используется {@link String#substring(int, int)}
+     * т.к. мы знаем что в строке есть ключевые слова-имена параметров
+     *
+     * @param convertedLine строка после парсинга
+     * @return String готовый четвертый параметр
+     */
     private String getFileNameFromParsingString(String convertedLine) {
         String fileName = convertedLine
                 .substring(convertedLine.indexOf("filename "), convertedLine.indexOf("line"))
@@ -107,7 +139,13 @@ public class ConvertToOutputFormat implements Converter {
         return fileName;
     }
 
-
+    /**
+     * из строки после парсинга извлекается первый параметр, для этого используется {@link String#substring(int)}
+     * * т.к. мы знаем что в строке есть ключевые слова-имена параметров
+     *
+     * @param convertedLine строка после парсинга
+     * @return int последний параметр
+     */
     private int getLineNumberFromParsingString(String convertedLine) {
         String lineStringFormat = convertedLine
                 .substring(convertedLine.indexOf("line "))

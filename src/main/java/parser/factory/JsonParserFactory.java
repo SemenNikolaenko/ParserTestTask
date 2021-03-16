@@ -3,7 +3,9 @@ package parser.factory;
 
 import parser.CustomParser;
 
-
+/**
+ * фабрика возвращающая JSON парсер
+ */
 public class JsonParserFactory extends AbstractFactory {
 
 
@@ -12,7 +14,6 @@ public class JsonParserFactory extends AbstractFactory {
     public JsonParserFactory(CustomParser jsonParser) {
         this.jsonParser = jsonParser;
     }
-
 
 
     @Override

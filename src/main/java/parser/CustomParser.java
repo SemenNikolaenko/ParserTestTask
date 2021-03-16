@@ -1,15 +1,25 @@
 package parser;
 
-import org.springframework.stereotype.Component;
 
-import java.io.IOException;
 import java.util.List;
 
+/**
+ * данный интерфейс описывает основную работу парсера
+ */
 public interface CustomParser {
-
+    /**
+     * в этом методе происходит инициализация рабочих параметров парсера
+     *
+     * @param filePath
+     */
     public void setWorkParam(String filePath);
-    public List<String> parsingLinesFromFile() throws IOException;
-    public List<String> getWorkResult();
-    public List<String> readAllLinesInFile() throws IOException;
-    public String getFileName();
+
+    /**
+     * данный метод выдает готовую строку определенного формата после парсинга, для дальнейшей работы
+     *
+     * @return List со строками определенного формата
+     */
+    public List<String> getParsedString();
+
+
 }
